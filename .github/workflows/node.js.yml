@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Debug backgroundSpec.js
-      run: cat earth/earth Extension/Tests/src/backgroundSpec.js
+      run: cat test-project/earth/earth Extension/Tests/src/backgroundSpec.js
 
     - name: Setup Node.js
       uses: actions/setup-node@v2
