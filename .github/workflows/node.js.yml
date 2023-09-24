@@ -45,6 +45,5 @@ jobs:
       run:  npx jasmine init
 
     - name: test project 
-      run:  npx jasmine earth/earth Extension/Tests/src/backgroundSpec.js
-
+      run:  npx jasmine  /home/runner/work/test-project/test-project/earth/fileSpec.js
       
