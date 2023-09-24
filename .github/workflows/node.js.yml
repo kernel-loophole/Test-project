@@ -21,6 +21,8 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 14 # Change to your preferred Node.js version
+    - name: Clear npm cache
+      run: npm cache clean --force
 
     - name: Install dependencies
       run: npm install
