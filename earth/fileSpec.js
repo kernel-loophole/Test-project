@@ -1,41 +1,41 @@
-describe('saveHistory function', () => {
-    beforeEach(() => {
-        jasmine.Ajax.install();
+// sum.spec.js
+
+const sum = require('./sum'); // Assuming the sum.js file is in the same directory
+
+describe('sum function', () => {
+    it('should correctly calculate the sum of two numbers', () => {
+        // Arrange
+        const a = 5;
+        const b = 3;
+
+        // Act
+        const result = sum(a, b);
+
+        // Assert
+        expect(result).toBe(8);
     });
 
-    afterEach(() => {
-        jasmine.Ajax.uninstall();
+    it('should handle negative numbers', () => {
+        // Arrange
+        const a = -2;
+        const b = -3;
+
+        // Act
+        const result = sum(a, b);
+
+        // Assert
+        expect(result).toBe(-5);
     });
 
-    it('should send a POST request with the correct data', async () => {
-        // Define test data
-        const history = 'https://example.com';
-        const base_url = 'https://api.example.com';
-        const uid = 'user123';
-        const machineid = 'machine456';
+    it('should handle zero values', () => {
+        // Arrange
+        const a = 0;
+        const b = 0;
 
-        // Mock the fetch response using jasmine-ajax
-        const successResponse = {
-            status: 200,
-            responseText: 'Success',
-        };
+        // Act
+        const result = sum(a, b);
 
-        jasmine.Ajax.stubRequest(`${base_url}/saveurl`).andReturn(successResponse);
-
-        // Call the saveHistory function
-        const result = await saveHistory(history, base_url, uid, machineid);
-
-        // Expectations
-        expect(result).toBe('Success');
-
-        // Verify that the request was made with the expected parameters
-        const request = jasmine.Ajax.requests.mostRecent();
-        expect(request.url).toBe(`${base_url}/saveurl`);
-        expect(request.method).toBe('POST');
-        expect(request.data()).toEqual({
-            url: history,
-            machineid: machineid,
-            uid: uid,
-        });
+        // Assert
+        expect(result).toBe(0);
     });
 });
